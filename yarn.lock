@@ -58,6 +58,187 @@
   dependencies:
     csstype "3.1.1"
 
+"@dicebear/adventurer-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/adventurer-neutral/-/adventurer-neutral-9.0.1.tgz#f23073e97f0445e89869a6acb281853311e359c8"
+  integrity sha512-Hr2QlhJK8Q2ShlXnq3/QN3PmcWwPsK3HDYnw21jMfAwcFe0YUQpSL/643vQtZwDjWmN1D5emNgGp4r9XwFEdtA==
+
+"@dicebear/adventurer@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/adventurer/-/adventurer-9.0.1.tgz#07001555812affb897bb602acad5c2ef493c238a"
+  integrity sha512-WKuQd115wEHM9qj6g2Xlwg9uug8ngaAxrfHhGdr/BFdXqol7skgbK1dUVHqctXnE/2nNvNFH8q6+paA4MJJjaA==
+
+"@dicebear/avataaars-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/avataaars-neutral/-/avataaars-neutral-9.0.1.tgz#b0d8439ecd528e358c664df73e928b9dc57f5dd9"
+  integrity sha512-yHZix7Xd8jnq8NJLUn3cM/63Xe80ZaIqTy37OqSB4mOSxSrAvlQ9YRjVTngzzDUI4aXqIP31OYL0/jZROSVoww==
+
+"@dicebear/avataaars@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/avataaars/-/avataaars-9.0.1.tgz#976ee8a8f37210d37333f0571a84697cf9c03b4e"
+  integrity sha512-uRTa8x80F5k0QKGB8TpjDcpuY4Uo3EMBxnPdlE2XzL4Q2tb5tKLoI0pxoaFZsQBHhAddDOmS6XrV+WEBElRr8g==
+
+"@dicebear/big-ears-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/big-ears-neutral/-/big-ears-neutral-9.0.1.tgz#ad54fe2a93be3bf6f6cf3bac3da5026136e8b282"
+  integrity sha512-fL8cLOGKzCMf92GiZGQjnw2j7niz0L3uUkDbNL/wCs4Li4JfVjjuDIZKVeJjkwfVlo/7ZJdmcIxnV3oKDNH0UQ==
+
+"@dicebear/big-ears@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/big-ears/-/big-ears-9.0.1.tgz#053f5f1b4e687f60003768d0b4e20462c1c8fa8b"
+  integrity sha512-DVWX2eZFz4sXHXS9zZJyLi7ipr1DMSfbLiLse1XzfQ99DqmlhK2vyXqMYAft46ta6AYug0+VBQjXc5zxjJkKiw==
+
+"@dicebear/big-smile@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/big-smile/-/big-smile-9.0.1.tgz#064aeaf1333268c0ca415f5821952fd937a198f9"
+  integrity sha512-BgZjfyFrFtbFuelIMPbFaYHvO582gBxxNkEeTODGeYSv2fx++eFTw2ONFKNFENBLmsobWhe3tHE2Lg+3dtPCNA==
+
+"@dicebear/bottts-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/bottts-neutral/-/bottts-neutral-9.0.1.tgz#c8ab1b1e1f4baf22677fd37d74ec001aab341493"
+  integrity sha512-RG8TZPizbvcQfm78GdhGMS9hAC/wo/gMYjGo7EjasGk6Y37z2lyfnKJDFAG80LUsgp+i47V9HWgf9uik+Y6czw==
+
+"@dicebear/bottts@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/bottts/-/bottts-9.0.1.tgz#a79cc3c9e85994b05032178c6a16bcf476719f0b"
+  integrity sha512-5A4Bf0mOXnRUOjPRY8dKZA1eOUXlUZm2JKITv/ehDpADuW/clJf9ZtNVxfTLUE89WtT6hgm03/CzeU4+PbKEzQ==
+
+"@dicebear/collection@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/collection/-/collection-9.0.1.tgz#6b3d7e0058ec29afa1ff7b1efd9881dbbf377045"
+  integrity sha512-ul2b6wof0Owu7Pwr4/cwqy+Zzu8tXcul6AJ3vhWnj2Kax33hm4MuCHSK10LVeo/+iyAa+5x4tARFly0spb/xRQ==
+  dependencies:
+    "@dicebear/adventurer" "9.0.1"
+    "@dicebear/adventurer-neutral" "9.0.1"
+    "@dicebear/avataaars" "9.0.1"
+    "@dicebear/avataaars-neutral" "9.0.1"
+    "@dicebear/big-ears" "9.0.1"
+    "@dicebear/big-ears-neutral" "9.0.1"
+    "@dicebear/big-smile" "9.0.1"
+    "@dicebear/bottts" "9.0.1"
+    "@dicebear/bottts-neutral" "9.0.1"
+    "@dicebear/croodles" "9.0.1"
+    "@dicebear/croodles-neutral" "9.0.1"
+    "@dicebear/fun-emoji" "9.0.1"
+    "@dicebear/icons" "9.0.1"
+    "@dicebear/identicon" "9.0.1"
+    "@dicebear/initials" "9.0.1"
+    "@dicebear/lorelei" "9.0.1"
+    "@dicebear/lorelei-neutral" "9.0.1"
+    "@dicebear/micah" "9.0.1"
+    "@dicebear/miniavs" "9.0.1"
+    "@dicebear/notionists" "9.0.1"
+    "@dicebear/notionists-neutral" "9.0.1"
+    "@dicebear/open-peeps" "9.0.1"
+    "@dicebear/personas" "9.0.1"
+    "@dicebear/pixel-art" "9.0.1"
+    "@dicebear/pixel-art-neutral" "9.0.1"
+    "@dicebear/rings" "9.0.1"
+    "@dicebear/shapes" "9.0.1"
+    "@dicebear/thumbs" "9.0.1"
+
+"@dicebear/core@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/core/-/core-9.0.1.tgz#fde9c9dab135e9379ac590693d31361314e4c412"
+  integrity sha512-d/ddHcKuJDHefKQMLbFsFh2gX4Ha0QDByp2pSpjJHiOZL97YA/2/Pnbv7m0/HZEH+C+AeHwZxMLwjr/aajbFxA==
+  dependencies:
+    "@types/json-schema" "^7.0.11"
+
+"@dicebear/croodles-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/croodles-neutral/-/croodles-neutral-9.0.1.tgz#7edfff60455822f14b70d46242fee137d8482385"
+  integrity sha512-Z1o1Jda7DYZfEIFHcPazbDAwL/RW+BiNaK/oEbzpj/Oe010Iy6+QG5570X1kK8lg5HbTGp6ptS2kyPFipOPAXg==
+
+"@dicebear/croodles@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/croodles/-/croodles-9.0.1.tgz#aed169931b42d6fd644dc906ed5fa018802d7342"
+  integrity sha512-b1UvQjpx7JX6V2rGLrUE+VjP5D/X8W12m51RucF4OwayFr+3Iu0gG5luoSEPHt41FtuUEnEZU8kVsgmTm+Kbkw==
+
+"@dicebear/fun-emoji@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/fun-emoji/-/fun-emoji-9.0.1.tgz#6d2aca99fce48818d4089fa7a3b5cd86cf1a3d31"
+  integrity sha512-cT2t9eoRsqwSizsuCBHw6C4kXEnc82WwwkXmeSM0gBb2+HqoMoTKGTUEw33Zcei6v9+yMJFvbtXY4YGncNnj9A==
+
+"@dicebear/icons@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/icons/-/icons-9.0.1.tgz#54432d773d6700b33c1cf886ee96b608acee3c1f"
+  integrity sha512-GeMEFq/f6lzKTRC5f53kyMH5o3E6WsYjYditz4rW5QWWlFV3XUyI1PRuTYCN65LnOzCVOIQFtpoO9/hPjKu6kw==
+
+"@dicebear/identicon@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/identicon/-/identicon-9.0.1.tgz#f86354903d47a55320b5370778fda0b78d0db756"
+  integrity sha512-3SkzwDL0/mH7k0jUS27MK8uM6QJTG5o2pKaNGOUJ0j/G0WTIjwt54x1KtwvED6J3tKT/nvy0qsJULOIVAS1kJw==
+
+"@dicebear/initials@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/initials/-/initials-9.0.1.tgz#a46069a1d0d4c82dd0a61133c3809fa20430eb5c"
+  integrity sha512-mL2xS48MX+Dg4Nf3IqhG1mZkLbuYQQwIIikU/EhY2YeDPtmZZhlIfAQOL6nw/9xecS6B1tmZfUsp966Fl6ploQ==
+
+"@dicebear/lorelei-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/lorelei-neutral/-/lorelei-neutral-9.0.1.tgz#bfa0bfe370e92300f30b294fba090db58db5070c"
+  integrity sha512-zucVVFDMMaP2f64m7ByERzH1XtM+0MnzfNhOX/27S0WGsV31bjzMW+nrx0N/+wBoDOCZOq7roT+Yq09MEhU6mw==
+
+"@dicebear/lorelei@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/lorelei/-/lorelei-9.0.1.tgz#6ef9ba41a40d6596507094975d68ce16ea44efea"
+  integrity sha512-GlKSsLHd1zSanhAgYxfa9VDtcuF9hGxJPWZVstzlUndU6eASuBmkHCZQVEjJv1V6W4Bos8YonAnzqIeOnDKHMg==
+
+"@dicebear/micah@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/micah/-/micah-9.0.1.tgz#c9cc81a5e05a70d2f2da64abc0aa8b1742801df0"
+  integrity sha512-+kxc2u/DlKH8Ljh3Nkrf5DIddcwzqeQf6rn6kQXWApz/TQKM9/Gm8TkUDkddYYNdQRSHkTBDhcUU0agEEVPVXw==
+
+"@dicebear/miniavs@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/miniavs/-/miniavs-9.0.1.tgz#0b7a15e8583fbc860eb7dd06abda9b8725b5b3ce"
+  integrity sha512-G3PrGQm7rAAJPZinskn0Dtstuz2BK1VzgzbMXm0wdCd5F5XdZZJjRGhQwdEcJYMkDzTWclS15Yw/t9KlNNPcsQ==
+
+"@dicebear/notionists-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/notionists-neutral/-/notionists-neutral-9.0.1.tgz#c10f9835b0af8c1c1fa920de1cba24b56caf2c50"
+  integrity sha512-fy9JUKXFNnM/QlRPRhchGqzO//m7B52qGESSM/3xdZWNKwAASbbPGnOC0r/5nrm4ZyXKvb0S67qw7FBkZC3VKQ==
+
+"@dicebear/notionists@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/notionists/-/notionists-9.0.1.tgz#d708e20b84db2f49605f0c38932c637a7dafc49f"
+  integrity sha512-t16TKE/niXUPk+CdQF4kFxg6FK0IpTauIxrC5TeTFTDG5PUPl1xZS37q9b2qhmDM4ZUpbdIAHYfc24kPORMwfw==
+
+"@dicebear/open-peeps@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/open-peeps/-/open-peeps-9.0.1.tgz#f5e3628e5f37ef98eadf6c0c327c1e88a267a4f5"
+  integrity sha512-CsLK3Japcsrz0v6sfuX6JjKDmkTvVmcmtx9r0wVF72aiwIDH+e2RjJz9HafvCXmogDN66zMYM/mosRyFuTWYCw==
+
+"@dicebear/personas@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/personas/-/personas-9.0.1.tgz#63b97c2d3f4d1fe2545181b7d7f493ef54bde854"
+  integrity sha512-jgWR70xdSGO3PnurPjSdnFnRriHfN/GqSGSROPn0hHy4thr/scuNgG+yKCYUe2IiSbymKbqwfq4h04qFusxd7g==
+
+"@dicebear/pixel-art-neutral@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/pixel-art-neutral/-/pixel-art-neutral-9.0.1.tgz#8e3f953a8c206070696f5bf2780d151672115a21"
+  integrity sha512-CcCI21+rczQ5I6PkL2fo4Fy0P3MJpn/ZtcOAXly7Co0ai8Wnva+3odFfOt9RLGQCj85N3OiAYE1Kn5Bl7+6jDA==
+
+"@dicebear/pixel-art@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/pixel-art/-/pixel-art-9.0.1.tgz#a36de7ec8800005118f5efdce187131dcf0505c9"
+  integrity sha512-VQJDrmvgNieUTsSBYE/CTfBurJBLwXP6NCyd3N0lm/xk+OC5esWH/6Oqkn8Rjp8iP5xdNR0rMDY5veBYcf9SLg==
+
+"@dicebear/rings@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/rings/-/rings-9.0.1.tgz#fb73355453efb0420835067e392afb8a172d97c5"
+  integrity sha512-U2L4g9QUIOWcUcbVKjrABj0x8RY6+WJxuJXE81SrSuztTydZ42KbBxXYyjEcdenbzpT4CDtiDgtepD+UFtErig==
+
+"@dicebear/shapes@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/shapes/-/shapes-9.0.1.tgz#538818e1ea27ce8650a6974e1bff0ad0f5f18840"
+  integrity sha512-55wbXZ2lgZv+XeV2o4SwHIXPU0vrsKTh4XEnFJcC9HUwzvi5UJTk9kDhp6gcVCz7/sKWYLmd8FLA9mUu3ArN8g==
+
+"@dicebear/thumbs@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@dicebear/thumbs/-/thumbs-9.0.1.tgz#77284b71abca339806e101f886805ff5aff8fa40"
+  integrity sha512-Smrx0GtDfT9YdajyHw1twBOXh0SruWhHUMDGDgsw1tE5bC4AKIPuH/+zAQ+l2eG1WRj27mTvWNFMLgRVHGiMeA==
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@isaacs/cliui/-/cliui-8.0.2.tgz#b37667b7bc181c168782259bab42474fbf52b550"
@@ -190,6 +371,11 @@
   dependencies:
     "@swc/counter" "^0.1.3"
     tslib "^2.4.0"
+
+"@types/json-schema@^7.0.11":
+  version "7.0.15"
+  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
+  integrity sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==
 
 "@types/node@^20":
   version "20.14.10"
