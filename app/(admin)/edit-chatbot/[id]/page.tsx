@@ -8,7 +8,7 @@ import {Button} from "@/components/ui/button";
 import {Copy} from "lucide-react";
 import {toast} from "sonner";
 import Avatar from "@/components/Avatar";
-import {useQuery} from "@apollo/client";
+import {useMutation, useQuery} from "@apollo/client";
 import {GET_CHATBOT_BY_ID} from "@/graphql/queries";
 import {GetChatbotByIdResponse, GetChatbotByIdVariables} from "@/types/types";
 import Characteristic from "@/components/Characteristic";
@@ -17,6 +17,10 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
   const [url, setUrl] = useState<string>('');
   const [chatbotName, setChatbotName] = useState<string>('');
   const [newCharacteristic, setNewCharacteristic] = useState<string>('');
+  const [deleteChatbot] = useMutation(DELETE_CHATBOT, {
+    refetchQueries: ["GetChatbotById"],
+    awaitRefetchQueries: true,
+  });
 
   const {data, loading, error} = useQuery<GetChatbotByIdResponse, GetChatbotByIdVariables>(
     GET_CHATBOT_BY_ID,
