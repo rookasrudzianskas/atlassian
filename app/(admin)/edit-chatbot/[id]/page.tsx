@@ -6,9 +6,12 @@ import {Input} from "@/components/ui/input";
 import {BASE_URL} from "@/graphql/apolloClient";
 import {Button} from "@/components/ui/button";
 import {Copy} from "lucide-react";
+import {toast} from "sonner";
+import Avatar from "@/components/Avatar";
 
 const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
   const [url, setUrl] = useState<string>('');
+  const [chatbotName, setChatbotName] = useState<string>('');
 
   useEffect(() => {
     const url = `${BASE_URL}/chatbot/${id}`;
@@ -32,7 +35,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
             className={'px-3'}
             onClick={() => {
               navigator.clipboard.writeText(url);
-              // toast.success('Copied to clipboard!');
+              toast.success('Copied to clipboard!');
             }}
           >
             <span className={'sr-only'}>Copy</span>
@@ -40,6 +43,17 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
           </Button>
         </div>
       </div>
+      <section className={'relative mt-5 bg-white p-5 md:p-10 rounded-lg'}>
+        <Button className={'absolute top-2 right-2 h-8 w-2'} variant={'destructive'}
+          // onClick={() => handleDelete()}
+        >
+          X
+        </Button>
+        <div>
+          <Avatar seed={chatbotName} />
+        </div>
+
+      </section>
     </div>
   );
 };

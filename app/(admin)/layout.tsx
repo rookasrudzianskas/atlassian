@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import {Toaster} from "@/components/ui/sonner";
 
 const AdminLayout = ({
   children,
@@ -14,6 +15,8 @@ const AdminLayout = ({
         <Sidebar />
         <div className={'flex flex-1 justify-center lg:justify-start items-start max-w-5xl mx-auto w-full'}>
           {children}
+
+          <Toaster position={'bottom-center'} />
         </div>
       </div>
     </div>
