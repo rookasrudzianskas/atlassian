@@ -7,11 +7,9 @@ const AdminLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div>
-      {/* Sidebar */}
-      <div>
-        {/* Header */}
-        <Header />
+    <div className={'flex flex-col flex-1'}>
+      <Header />
+      <div className={'flex flex-col md:flex-row bg-gray-100 flex-1'}>
         <div>
           {children}
         </div>
