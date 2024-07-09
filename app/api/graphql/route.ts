@@ -11,6 +11,8 @@ const corsHeaders = {
 export async function POST(request: NextRequest) {
   const {query, variables} = await request.json();
 
+  console.log("DEBUG 1", query)
+
   try {
     let result;
     if (query.trim().startsWith("mutation")) {

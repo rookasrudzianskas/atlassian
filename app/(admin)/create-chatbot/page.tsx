@@ -31,7 +31,7 @@ const CreateChatbot = ({}) => {
 
       router.push(`/edit-chatbot/${data.data.insertChatbots.id}`)
     } catch (error) {
-      console.error(error);
+      console.error('This is error', error);
     }
   }
 
@@ -52,8 +52,8 @@ const CreateChatbot = ({}) => {
             required={true}
             type={'text'}
           />
-          <Button className={''}>
-            Create chatbot
+          <Button className={''} disabled={loading || !name}>
+            {loading ? 'Creating...' : 'Create chatbot'}
           </Button>
         </form>
 
