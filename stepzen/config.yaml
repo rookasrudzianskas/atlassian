@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: postgresql_config
+      uri: postgresql://ep-blue-bush-a5id0ey9.us-east-2.aws.neon.tech/chatbot?user=chatbot_owner&password=gMBbxWGm9HR7
