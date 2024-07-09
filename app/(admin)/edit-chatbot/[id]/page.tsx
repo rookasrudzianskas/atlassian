@@ -14,6 +14,7 @@ import {GetChatbotByIdResponse, GetChatbotByIdVariables} from "@/types/types";
 import Characteristic from "@/components/Characteristic";
 import {DELETE_CHATBOT} from "@/graphql/mutations";
 import {isWindowDefined} from "swr/_internal";
+import {redirect} from "next/navigation";
 
 const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
   const [url, setUrl] = useState<string>('');
@@ -65,6 +66,15 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
       <Avatar seed={'Loading...'} />
     </div>
   }
+
+  if (error) {
+    return <div className={'mx-auto animate-spin p-10 text-center flex flex-row items-center'}>
+      <Avatar seed={'Error...'} />
+      <p className={'text-sm text-red-500'}>{error.message}</p>
+    </div>
+  }
+
+  // if (!data?.chatbots) return redirect('/view-chatbots')
 
   return (
     <div className={'px-0 md:p-10'}>
