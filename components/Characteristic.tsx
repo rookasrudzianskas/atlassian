@@ -12,12 +12,12 @@ const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic
     refetchQueries: ["GetChatById"],
   });
 
-  const handleRemoveCharacteristic = async (charactersticId: number) => {
+  const handleRemoveCharacteristic = async (characteristicId: number) => {
     console.log("REMOVE CHARACTERISTIC", characteristic);
     try {
       await removeCharacteristic({
         variables: {
-          id: charactersticId,
+          id: characteristicId,
         },
       });
     } catch (error) {

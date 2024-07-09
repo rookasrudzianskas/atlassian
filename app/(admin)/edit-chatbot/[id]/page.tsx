@@ -12,6 +12,8 @@ import {useMutation, useQuery} from "@apollo/client";
 import {GET_CHATBOT_BY_ID} from "@/graphql/queries";
 import {GetChatbotByIdResponse, GetChatbotByIdVariables} from "@/types/types";
 import Characteristic from "@/components/Characteristic";
+import {DELETE_CHATBOT} from "@/graphql/mutations";
+import {isWindowDefined} from "swr/_internal";
 
 const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
   const [url, setUrl] = useState<string>('');
@@ -24,7 +26,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
 
   const {data, loading, error} = useQuery<GetChatbotByIdResponse, GetChatbotByIdVariables>(
     GET_CHATBOT_BY_ID,
-    { variables: { id } },
+    {variables: {id}},
   );
 
   useEffect(() => {
@@ -38,7 +40,31 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
     setUrl(url);
   }, [id]);
 
-  console.log("DATA >>>>", data);
+  const handleDelete = async (id: string) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this chatbot?');
+
+    if (!isConfirmed) {
+      return;
+    }
+
+    try {
+      const promise = deleteChatbot({variables: {id}});
+      toast.promise(promise, {
+        loading: 'Deleting...',
+        success: 'Deleted!',
+        error: 'Error deleting!',
+      });
+    } catch (error) {
+      console.error('This is error', error);
+      toast.error('Error deleting!', error.message);
+    }
+  }
+
+  if (loading) {
+    <div className={'mx-auto animate-spin p-10'}>
+      <Avatar seed={'Loading...'} />
+    </div>
+  }
 
   return (
     <div className={'px-0 md:p-10'}>
@@ -67,7 +93,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
       </div>
       <section className={'relative mt-5 bg-white p-5 md:p-10 rounded-lg'}>
         <Button className={'absolute top-2 right-2 h-8 w-2'} variant={'destructive'}
-          // onClick={() => handleDelete()}
+          onClick={() => handleDelete()}
         >
           X
         </Button>
@@ -105,7 +131,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
           </form>
 
           <ul className={'flex flex-wrap-reverse  gap-5'}>
-            {data?.chatbots.chatbot_characteristics.map((characteristic) => {
+            {data?.chatbots?.chatbot_characteristics.map((characteristic) => {
               <Characteristic
                 key={characteristic.id}
                 characteristic={characteristic}
