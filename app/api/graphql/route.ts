@@ -11,23 +11,25 @@ const corsHeaders = {
 export async function POST(request: NextRequest) {
   const {query, variables} = await request.json();
 
-  console.log("DEBUG 1", query)
+  console.log("DEBUG 1", query);
+  console.log("DEBUG 2", variables);
 
   try {
     let result;
+
     if (query.trim().startsWith("mutation")) {
       result = await serverClient.mutate({
         mutation: gql`
         ${query}
         `,
-        variables: variables,
-      })
+        variables,
+      });
     } else {
       result = await serverClient.query({
         query: gql`
         ${query}
         `,
-        variables: variables,
+        variables,
       });
     }
 
@@ -43,7 +45,7 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error(error);
+    console.error("This is error>>>>", error);
     return NextResponse.json(
       error,
       {
