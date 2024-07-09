@@ -4,10 +4,11 @@ import React from 'react';
 import {ChatbotCharacteristic} from "@/types/types";
 import {OctagonX} from "lucide-react";
 import {useMutation} from "@apollo/client";
+import {REMOVE_CHARACTERISTIC} from "@/graphql/mutations";
 
 const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic}) => {
   const [removeCharacteristic] = useMutation(REMOVE_CHARACTERISTIC, {
-    // refetchQueries: ["GetChatById"],
+    refetchQueries: ["GetChatById"],
   });
 
   const handleRemoveCharacteristic = () => {
