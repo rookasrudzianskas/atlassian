@@ -6,7 +6,7 @@ import {Input} from "@/components/ui/input";
 
 import {Button} from "@/components/ui/button";
 import {useMutation} from "@apollo/client";
-import {CREATE_CHATBOT} from "@/graphql/queries";
+import {CREATE_CHATBOT} from "@/graphql/mutations";
 import {useUser} from "@clerk/nextjs";
 import {useRouter} from "next/navigation";
 

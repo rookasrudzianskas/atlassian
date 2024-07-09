@@ -37,3 +37,11 @@ export interface Message {
   created_at: string;
   sender: "ai" | "user";
 }
+
+export interface GetChatbotByIdVariables {
+  id: number;
+}
+
+export interface GetChatbotByIdResponse {
+  chatbots: Chatbot;
+}
