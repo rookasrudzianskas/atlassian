@@ -5,22 +5,38 @@ import {ChatbotCharacteristic} from "@/types/types";
 import {OctagonX} from "lucide-react";
 import {useMutation} from "@apollo/client";
 import {REMOVE_CHARACTERISTIC} from "@/graphql/mutations";
+import {toast} from "sonner";
 
 const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic}) => {
   const [removeCharacteristic] = useMutation(REMOVE_CHARACTERISTIC, {
     refetchQueries: ["GetChatById"],
   });
 
-  const handleRemoveCharacteristic = () => {
+  const handleRemoveCharacteristic = async (charactersticId: number) => {
     console.log("REMOVE CHARACTERISTIC", characteristic);
-
+    try {
+      await removeCharacteristic({
+        variables: {
+          id: charactersticId,
+        },
+      });
+    } catch (error) {
+      console.error('This is error', error);
+    }
   }
 
   return (
     <li className={'relative p-10 bg-white border rounded-md'}>
       {characteristic.content}
       <OctagonX
-        onClick={handleRemoveCharacteristic}
+        onClick={() => {
+          const promise = handleRemoveCharacteristic(characteristic.id);
+          toast.promise(promise, {
+            loading: 'Removing...',
+            success: 'Removed!',
+            error: 'Error removing!',
+          });
+        }}
         className={'w-6 h-6 text-white fill-red-500 absolute top-1 right-1 cursor-pointer hover:opacity-50'} />
     </li>
   );
