@@ -52,7 +52,7 @@ type Messages {
 }
 
 """
-The following queries are just a set of examples of how to access your schema.
+The following queries.ts are just a set of examples of how to access your schema.
 Feel free to modify them or aggregate more.
 """
 type Query {
