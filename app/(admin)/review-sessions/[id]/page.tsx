@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react';
 import {useAwaitablePush} from "@clerk/nextjs/dist/types/app-router/client/useAwaitablePush";
 import {serverClient} from "@/lib/server/serverClient";

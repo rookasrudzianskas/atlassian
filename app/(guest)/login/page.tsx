@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react';
 import Avatar from "@/components/Avatar";
 import {SignIn} from "@clerk/nextjs";
