@@ -112,6 +112,31 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
       created_at: new Date().toISOString(),
       chat_session_id: chatId,
       sender: "ai",
+    };
+
+    setMessages((prevMessages) => [...prevMessages, userMessage, loadingMessage]);
+
+    try {
+      const response = await fetch("/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          chat_session_id: chatId,
+          chatbot_id: id,
+          content: message,
+        }),
+      });
+
+      const result = await response.json();
+      console.log("RESPONSE", result);
+
+      setMessages((prevMessages) => prevMessages.map((msg) => msg.id === loadingMessage.id ? { ...msg, content: result.content, id: result.id } : msg));
+
+    } catch (error) {
+      console.error('This is error', error);
     }
   }
 
