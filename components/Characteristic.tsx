@@ -9,7 +9,7 @@ import {toast} from "sonner";
 
 const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic}) => {
   const [removeCharacteristic] = useMutation(REMOVE_CHARACTERISTIC, {
-    refetchQueries: ["GetChatById"],
+    refetchQueries: ["GetChatbotById"],
   });
 
   const handleRemoveCharacteristic = async (characteristicId: number) => {
@@ -17,7 +17,7 @@ const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic
     try {
       await removeCharacteristic({
         variables: {
-          id: characteristicId,
+          characteristicId,
         },
       });
     } catch (error) {
@@ -26,7 +26,7 @@ const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic
   }
 
   return (
-    <li className={'relative p-10 bg-white border rounded-md'}>
+    <li key={characteristic.id} className={'relative p-10 bg-white border rounded-md'}>
       {characteristic.content}
       <OctagonX
         onClick={() => {
