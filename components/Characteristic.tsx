@@ -13,7 +13,7 @@ const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic
   });
 
   const handleRemoveCharacteristic = async (characteristicId: number) => {
-    console.log("REMOVE CHARACTERISTIC", characteristic);
+    console.log("REMOVE CHARACTERISTIC", characteristicId);
     try {
       await removeCharacteristic({
         variables: {

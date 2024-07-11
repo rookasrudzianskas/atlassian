@@ -315,7 +315,7 @@ type Mutation {
       configuration: "postgresql_config"
     )
   insertChatbot_characteristics(
-    created_at: DateTime!
+    created_at: DateTime
     content: String!
     chatbot_id: Int
   ): Chatbot_characteristics

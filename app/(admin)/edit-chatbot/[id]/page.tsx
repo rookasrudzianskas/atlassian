@@ -12,7 +12,7 @@ import {useMutation, useQuery} from "@apollo/client";
 import {GET_CHATBOT_BY_ID} from "@/graphql/queries";
 import {GetChatbotByIdResponse, GetChatbotByIdVariables} from "@/types/types";
 import Characteristic from "@/components/Characteristic";
-import {DELETE_CHATBOT} from "@/graphql/mutations";
+import {ADD_CHARACTERISTIC, DELETE_CHATBOT} from "@/graphql/mutations";
 import {isWindowDefined} from "swr/_internal";
 import {redirect} from "next/navigation";
 
@@ -25,6 +25,10 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
     awaitRefetchQueries: true,
   });
 
+  const [addCharacteristic] = useMutation(ADD_CHARACTERISTIC, {
+    refetchQueries: ["GetChatbotById"],
+  });
+
   const {data, loading, error} = useQuery<GetChatbotByIdResponse, GetChatbotByIdVariables>(
     GET_CHATBOT_BY_ID,
     {variables: {id}},
@@ -32,7 +36,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
 
   useEffect(() => {
     if (data) {
-      setChatbotName(data.chatbots.name);
+      setChatbotName(data?.chatbots?.name);
     }
   }, [data]);
 
@@ -41,12 +45,34 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
     setUrl(url);
   }, [id]);
 
+  const handleAddChacteristic = async (content: string) => {
+    try {
+      const promise = addCharacteristic({
+        variables: {
+          chatbotId: Number(id),
+          content,
+        },
+      });
+
+      toast.promise(promise, {
+        loading: 'Adding...',
+        success: 'Added!',
+        error: 'Error adding!',
+      });
+  } catch (error) {
+      console.error('This is error', error);
+      toast.error('Error adding!', error.message);
+    }
+  }
+
   const handleDelete = async (id: string) => {
     const isConfirmed = window.confirm('Are you sure you want to delete this chatbot?');
 
     if (!isConfirmed) {
       return;
     }
+
+    console.log('ID .>.', id)
 
     try {
       const promise = deleteChatbot({variables: {id}});
@@ -103,7 +129,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
       </div>
       <section className={'relative mt-5 bg-white p-5 md:p-10 rounded-lg'}>
         <Button className={'absolute top-2 right-2 h-8 w-2'} variant={'destructive'}
-          onClick={() => handleDelete()}
+          onClick={() => handleDelete(id)}
         >
           X
         </Button>
@@ -129,8 +155,14 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
           Your chatbot is equipped with the following information to assist you in your conversations with your customers. Feel free to update or delete any of the information below.
         </p>
 
-        <div>
-          <form onSubmit={() => {}}>
+        <div className={'bg-gray-200 p-5 md:p-5 rounded-md mt-5'}>
+          <form
+            className={'flex space-x-2 mb-5'}
+            onSubmit={(e) => {
+            e.preventDefault();
+            handleAddChacteristic(newCharacteristic);
+            setNewCharacteristic('');
+          }}>
             <Input
               type={'text'}
               placeholder={'Example: if your customer asks the prices, provide pricing page: www.example.com/pricing'}
@@ -141,12 +173,12 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
           </form>
 
           <ul className={'flex flex-wrap-reverse  gap-5'}>
-            {data?.chatbots?.chatbot_characteristics.map((characteristic) => {
+            {data?.chatbots?.chatbot_characteristics.map((characteristic, index) => (
               <Characteristic
                 key={characteristic.id}
                 characteristic={characteristic}
               />
-            })}
+            ))}
           </ul>
         </div>
       </section>
