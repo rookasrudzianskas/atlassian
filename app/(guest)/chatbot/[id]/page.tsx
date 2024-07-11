@@ -13,6 +13,8 @@ import {Message} from "@/types/types";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import {Button} from "@/components/ui/button";
+import startNewChat from "@/lib/startNewChat";
+import Avatar from "@/components/Avatar";
 
 const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
   const [name, setName] = useState<string>('');
@@ -26,7 +28,7 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
     e.preventDefault();
     setLoading(true);
 
-    const chatId = await startNewChat(name, email. Number(id));
+    const chatId = await startNewChat(name, email, Number(id));
 
     setChatId(chatId);
     setLoading(false);
@@ -83,6 +85,19 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
           </form>
         </DialogContent>
       </Dialog>
+
+      <div>
+        <div className={'pb-4 border-b sticky top-0 z-50 bg-[#4D7DfB] py-5 px-10 text-white md:rounded-t-lg flex' +
+          ' items-center space-x-4'}>
+          <Avatar seed={chatbotData?.chatbots.name}
+                  className={'h-12 w-12 bg-white rounded-full border--2 border-white'}
+          />
+          <div className={'truncate text-lg'}>
+            <h1 className={'truncate text-lg'}>{chatBotData?.chatbots.name}</h1>
+            <p className={'text-sm text-gray-300'}>Typically replies in less than a minute</p>
+          </div>
+        </div>
+      </div>
 
     </div>
   );
