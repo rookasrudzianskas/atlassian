@@ -26,7 +26,10 @@ const Characteristic = ({characteristic}: {characteristic: ChatbotCharacteristic
   }
 
   return (
-    <li key={characteristic.id} className={'relative p-10 bg-white border rounded-md'}>
+    <li
+      key={characteristic.id}
+      className={'relative p-10 bg-white border rounded-md'}
+    >
       {characteristic.content}
       <OctagonX
         onClick={() => {

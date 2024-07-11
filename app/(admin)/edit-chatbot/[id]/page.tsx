@@ -12,7 +12,7 @@ import {useMutation, useQuery} from "@apollo/client";
 import {GET_CHATBOT_BY_ID} from "@/graphql/queries";
 import {GetChatbotByIdResponse, GetChatbotByIdVariables} from "@/types/types";
 import Characteristic from "@/components/Characteristic";
-import {ADD_CHARACTERISTIC, DELETE_CHATBOT} from "@/graphql/mutations";
+import {ADD_CHARACTERISTIC, DELETE_CHATBOT, UPDATE_CHATBOT} from "@/graphql/mutations";
 import {isWindowDefined} from "swr/_internal";
 import {redirect} from "next/navigation";
 
@@ -26,6 +26,10 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
   });
 
   const [addCharacteristic] = useMutation(ADD_CHARACTERISTIC, {
+    refetchQueries: ["GetChatbotById"],
+  });
+
+  const [updateChatbot] = useMutation(UPDATE_CHATBOT, {
     refetchQueries: ["GetChatbotById"],
   });
 
@@ -87,6 +91,27 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
     }
   }
 
+  const handleUpdateChatbot = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const promise =  updateChatbot({
+        variables: {
+          id: id,
+          name: chatbotName,
+        },
+      });
+
+      toast.promise(promise, {
+        loading: 'Updating...',
+        success: 'Updated!',
+        error: 'Error updating!',
+      });
+    } catch (error) {
+      console.error('This is error', error);
+      toast.error('Error updating!', error.message);
+    }
+  }
+
   if (loading) {
     <div className={'mx-auto animate-spin p-10'}>
       <Avatar seed={'Loading...'} />
@@ -136,7 +161,7 @@ const EditChatbot = ({params: {id}}: { params: { id: string }}) => {
         <div className={'flex space-x-4'}>
           <Avatar seed={chatbotName} />
           <form
-            // onSubmit={handleUpdateChatbot}
+            onSubmit={handleUpdateChatbot}
             className={'flex flex-1 space-x-2 items-center'}>
             <Input
               value={chatbotName}

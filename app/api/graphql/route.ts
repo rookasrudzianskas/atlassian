@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     }
 
     const data = result.data;
-    console.log(">>> DATA", data, result);
+    console.log(">>> DATA", data);
 
     return NextResponse.json({
         data,
