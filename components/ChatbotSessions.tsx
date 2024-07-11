@@ -16,6 +16,8 @@ const ChatbotSessions = ({ chatbots }: { chatbots: Chatbot[] }) => {
     setSortedChatbots(sortedArray);
   }, [chatbots]);
 
+  console.log("CHATBOTS", sortedChatbots);
+
   return (
     <div className={'bg-white rounded-md'}>
       <Accordion type="single" collapsible>
