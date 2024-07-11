@@ -82,6 +82,39 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
     setIsOpen(false);
   }
 
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
+    const { message: formMessage } = values;
+    const message = formMessage;
+    form.reset();
+
+    if(!name || !email) {
+      setIsOpen(true);
+      setLoading(false);
+      return;
+    }
+
+    if(!message.trim()) {
+      return;
+    }
+
+    const userMessage: Message = {
+      id: Date.now(),
+      content: message,
+      created_at: new Date().toISOString(),
+      chat_session_id: chatId,
+      sender: "user",
+    };
+
+    const loadingMessage: Message = {
+      id: Date.now(),
+      content: 'Loading...',
+      created_at: new Date().toISOString(),
+      chat_session_id: chatId,
+      sender: "ai",
+    }
+  }
+
   return (
     <div className={'w-full flex bg-gray-100'}>
       <Dialog
@@ -150,7 +183,10 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
         />
 
         <Form {...form}>
-          <form className={'flex items-start sticky bottom-0 z-50 space-x-4 drop-shadow-lg p-4 bg-gray-100 rounded-md'}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className={'flex items-start sticky bottom-0 z-50 space-x-4' +
+            ' drop-shadow-lg p-4' +
+            ' bg-gray-100' +
+            ' rounded-md'}>
             <FormField
               control={form.control}
               name={"message"}
@@ -167,7 +203,7 @@ const ChatbotPage = ({params: { id }}: { params: { id: string }}) => {
                 </FormItem>
               )}
             />
-            <Button type={'submit'} disabled={!form.formState.isValid || loading}>
+            <Button disabled={form.formState.isSubmitting || !form.formState.isValid} type={'submit'}>
               {!loading ? 'Send' : 'Sending...'}
             </Button>
           </form>
