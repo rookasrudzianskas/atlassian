@@ -45,3 +45,11 @@ export interface GetChatbotByIdVariables {
 export interface GetChatbotByIdResponse {
   chatbots: Chatbot;
 }
+
+export interface GetChatbotsByUserData {
+  chatbotsByUser: Chatbot[];
+}
+
+export interface GetChatbotsByUserVariables {
+  clerk_user_id: string;
+}
