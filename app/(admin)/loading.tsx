@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from "@/components/Avatar";
 
-const loading = ({}) => {
+const Loading = ({}) => {
   return (
     <div className={'mx-auto animate-spin p-10'}>
       <Avatar seed={'Loading...'} />
@@ -9,5 +9,5 @@ const loading = ({}) => {
   );
 };
 
-export default loading;
+export default Loading;
 // by Rokas with ❤️
