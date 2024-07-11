@@ -4,6 +4,7 @@ import {serverClient} from "@/lib/server/serverClient";
 import {GetChatbotByIdResponse, MessagesByChatSessionIdResponse} from "@/types/types";
 import {GET_CHATBOT_BY_ID, GET_MESSAGES_BY_CHAT_SESSION_ID} from "@/graphql/queries";
 import {Chat, ChatCompletionMessageParam} from "openai/resources";
+import {INSERT_MESSAGE} from "@/graphql/mutations";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -69,6 +70,33 @@ export async function POST(req: Request) {
     });
 
     console.log("OPENAI RESPONSE", openaiResponse);
+
+    const aiResponse = openaiResponse?.choices?.[0]?.message?.content?.trim();
+
+    if(!aiResponse) {
+      return NextResponse.json({
+        error: 'AI response is empty',
+      }, { status: 400 });
+    }
+
+    await serverClient.mutate({
+      mutation: INSERT_MESSAGE,
+      variables: {
+        chat_session_id, content, sender: "user"
+      },
+    });
+
+    const aiMessageResult = await serverClient.mutate({
+      mutation: INSERT_MESSAGE,
+      variables: {
+         chat_session_id, content: aiResponse, sender: "ai"
+      }
+    });
+
+    return NextResponse.json({
+      id: aiMessageResult.data.insertMessages.id,
+      content: aiResponse,
+    });
 
   } catch (error) {
     console.error('This is error', error);
