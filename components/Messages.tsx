@@ -22,7 +22,7 @@ const Messages = ({messages, chatbotName}: { messages: Message[], chatbotName: s
              </p>
            )}
 
-           <div>
+           <div className={`chat-image avatar w-10 ${!isSender && 'mr-4'}`}>
              {isSender ? (
                <Avatar
                  seed={chatbotName}
@@ -32,6 +32,11 @@ const Messages = ({messages, chatbotName}: { messages: Message[], chatbotName: s
                <UserCircle className={'text-[#2991EE]'} />
              )}
            </div>
+
+           <p className={`chat-bubble text-white ${isSender ? "chat-bubble-primary" : "chat-bubble-secondary" +
+             " bg-gray-200 text-gray-700"}`}>
+             {message.content}
+           </p>
          </div>
        )
       })}
