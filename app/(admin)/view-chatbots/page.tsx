@@ -18,8 +18,8 @@ const ViewChatbots = async ({}) => {
   const sortedChatbotsByUser: Chatbot[] = [...chatbotsByUser].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
   return (
-    <div>
-
+    <div className={'flex-1 pb-10 p-10'}>
+      <h1 className={'text-xl lg:text-3xl font-semibold mb-5'}>Active Chatbots</h1>
     </div>
   );
 };
